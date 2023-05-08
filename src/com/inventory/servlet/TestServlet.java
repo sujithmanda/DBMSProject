@@ -41,7 +41,7 @@ public class TestServlet extends HttpServlet {
 			
 			conn = dataSource.getConnection();
 			
-			String sql = "select * from product";
+			String sql = "select * from Product";
 			stm = conn.createStatement();
 			
 			rs = stm.executeQuery(sql);

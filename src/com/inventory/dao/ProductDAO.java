@@ -37,7 +37,7 @@ public class ProductDAO {
 			myConn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 
 			// create sql statement
-			String sql = "select * from product";
+			String sql = "select * from Product";
 
 			myStmt = myConn.createStatement();
 
@@ -98,7 +98,7 @@ public class ProductDAO {
 			myStmt.execute();
 
 			// create sql to delete product (parent table)
-			sql = "delete from product where prod=?";
+			sql = "delete from Product where prod=?";
 
 			// prepare statement
 			myStmt = myConn.prepareStatement(sql);
@@ -137,7 +137,7 @@ public class ProductDAO {
 			myConn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 
 			// create SQL update statement
-			String sql = "update product " + "set pname=?, price=?" + " where prod=?";
+			String sql = "update Product " + "set pname=?, price=?" + " where prod=?";
 
 			// prepare statement
 			myStmt = myConn.prepareStatement(sql);
@@ -180,7 +180,7 @@ public class ProductDAO {
 			// create table student(id integer, name varchar(10), primary key(Id))
 			// Either the 2 following inserts are executed, or none of them are. This is
 			
-			String sql = "select * from product where prod=?";
+			String sql = "select * from Product where prod=?";
 			myStmt = myConn.prepareStatement(sql);
 			myStmt.setString(1, theProduct.getProd());
 
@@ -189,7 +189,7 @@ public class ProductDAO {
 			// if product with the product Id not exists then only do the insertion - consistency, isolation.
 			if (!resultSet.next()) {
 				// create sql for Product insert (parent)
-				sql = "insert into product " + "(prod, pname, price) " + "values (?, ?, ?)";
+				sql = "insert into Product " + "(prod, pname, price) " + "values (?, ?, ?)";
 
 				myStmt = myConn.prepareStatement(sql);
 
@@ -228,7 +228,7 @@ public class ProductDAO {
 				// do the product updation
 				
 				// create SQL update statement
-				sql = "update product " + "set pname=?, price=?" + " where prod=?";
+				sql = "update Product " + "set pname=?, price=?" + " where prod=?";
 
 				// prepare statement
 				myStmt = myConn.prepareStatement(sql);
@@ -289,7 +289,7 @@ public class ProductDAO {
 			myConn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 
 			// create sql to get selected product
-			String sql = "select * from product where prod=?";
+			String sql = "select * from Product where prod=?";
 
 			// create prepared statement
 			myStmt = myConn.prepareStatement(sql);
